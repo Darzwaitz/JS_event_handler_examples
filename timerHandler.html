@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Timer Handler</title>
+
+</head>
+<body>
+<h1>Test timer</h1>
+
+<script>
+
+function callHandler(){
+
+   let i = 0;
+    
+    // call timerHandler twice only
+    function timerHandler(){
+        if (i < 2) {
+            alert('test timer');   
+            i++;
+            console.log(i);
+            setTimeout(timerHandler, 2000);
+        }
+     
+    }      
+    setTimeout(timerHandler, 2000); 
+}
+
+callHandler();
+
+</script>
+</body>
+</html>

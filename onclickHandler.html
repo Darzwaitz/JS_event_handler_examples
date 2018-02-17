@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>event handler</title>
+	<style>body { margin: 20px; }
+        img { margin: 20px; }
+</style>
+<script>
+    // images unblur on mouse click event and reblur after 2 seconds
+
+    window.onload = init;
+
+    function init() {
+        // let image = document.getElementById("zero");
+        // image.onclick = showAnswer;
+        let images = document.getElementsByTagName("img");
+        for (let i = 0; i < images.length; i++) {
+            images[i].onclick = showAnswer;
+        }
+    };
+
+
+    function showAnswer(eventObj) {
+        let image = eventObj.target; //grab clicked image as 'target'
+        let name = image.id; //grab image ID
+        console.log('image src: ' + image.src) //check src value
+        console.log('image id: ' + name) // check name value
+        name = "images/" + name + ".jpg";
+
+        image.src = name;
+
+        setTimeout(reblur, 2000, image); //reblur image after 2 seconds
+    }
+
+    function reblur(image) {
+        let name = image.id; //grab img id
+        name = name + "blur.jpg"; //add 'blur' to this
+        image.src = "images/" + name; // change the source to name variable
+    }
+
+</script>
+</head>
+<body>
+	<img id="zero" src="images/zeroblur.jpg">
+    <img id="one" src="images/oneblur.jpg">
+    <img id="two" src="images/twoblur.jpg">
+    <img id="three" src="images/threeblur.jpg">
+    <img id="four" src="images/fourblur.jpg">
+    <img id="five" src="images/fiveblur.jpg">
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>mouseover/mouseout event handlers</title>
+	<style>body { margin: 20px; }
+		img { margin: 20px; }
+</style>
+<script>
+	// images unblur on mouse over event and reblur on mouse out event
+    window.onload = init;
+
+
+	function init() {
+		// let image = document.getElementById("zero");
+		// image.onclick = showAnswer;
+		let images = document.getElementsByTagName("img"); // grab all img tags
+		for (let i = 0; i < images.length; i++) {
+			images[i].onmouseover = showAnswer; // use handler for each image individually
+            images[i].onmouseout = reblur;  // use handler for each image individually
+            
+		}
+	};
+
+
+	function showAnswer(eventObj) {
+		let image = eventObj.target; //grab clicked image as 'target'
+		let name = image.id; //grab image ID
+		console.log('image src: ' + image.src) //check src value
+		console.log('image id: ' + name) // check name value
+		
+        name = name + ".jpg";
+		image.src = "images/" + name;
+
+	}
+
+	function reblur(eventObj) {
+        let image = eventObj.target; //grab clicked image as 'target'
+        let name = image.id; //grab image ID
+        console.log('image src: ' + image.src) //check src value
+        console.log('image id: ' + name) // check name value
+        
+        name = name + "blur.jpg";
+        image.src = "images/" + name;
+	}
+
+</script>
+</head>
+<body>
+	<img id="zero" src="images/zeroblur.jpg">
+    <img id="one" src="images/oneblur.jpg">
+    <img id="two" src="images/twoblur.jpg">
+    <img id="three" src="images/threeblur.jpg">
+    <img id="four" src="images/fourblur.jpg">
+    <img id="five" src="images/fiveblur.jpg">
+</body>
+</html>

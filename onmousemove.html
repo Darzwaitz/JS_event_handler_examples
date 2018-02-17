@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Map Event Handler</title>
+	<script>
+		window.onload = init;
+		function init(){
+			let imageID = document.getElementById("map"); // grab div ID with image inside
+			imageID.onmousemove = showCoords; // attach handler
+		}
+
+		function showCoords(eventObj) { //pass the event object in 
+			let pContent = document.getElementById("coords"); // gram paragraph ID
+            let x = eventObj.clientX; //  assign co-ordinates to event object
+            let y = eventObj.clientY;
+
+			pContent.innerHTML = "Map coordinates: " + x + ", " + y; // display results
+		}
+
+	</script>
+</head>
+<body>
+	<img id="map" src="images/map.jpg">
+	<p id="coords">Move mouse to find coordinates..</p>
+
+</body>
+</html>
